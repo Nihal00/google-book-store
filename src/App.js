@@ -10,6 +10,7 @@ const App = () => {
   const [data2, setData2] = useState("");
   const [search, setSearch] = useState("");
   const [ifChecked, setIfChecked] = useState("");
+  const [cardId, setCardId] = useState("");
 
   useEffect(() => {
     axios
@@ -20,6 +21,8 @@ const App = () => {
       )
       .then((response) => {
         setData(response.data.items);
+        setIfChecked("");
+        setCardId("");
       });
   }, [search]);
 
@@ -31,8 +34,6 @@ const App = () => {
       });
   }, []);
 
-  
-
   return (
     <div className="App">
       <Header setSearch={setSearch} />
@@ -42,6 +43,8 @@ const App = () => {
             data={[...data, ...data2]}
             ifChecked={ifChecked}
             setIfChecked={setIfChecked}
+            cardId={cardId}
+            setCardId={setCardId}
           />
         )}
 
@@ -50,9 +53,9 @@ const App = () => {
           {data &&
             data.map((book) => (
               <BooksSection
-                id={book.id}
-                title={book.volumeInfo.title}
-                img={book.volumeInfo.imageLinks.smallThumbnail}
+                id={book?.id}
+                title={book?.volumeInfo.title}
+                img={book?.volumeInfo.imageLinks?.smallThumbnail}
                 setIfChecked={setIfChecked}
               />
             ))}
@@ -61,9 +64,9 @@ const App = () => {
             !search &&
             data2.map((book) => (
               <BooksSection
-                id={book.id}
-                title={book.volumeInfo.title}
-                img={book.volumeInfo.imageLinks.smallThumbnail}
+                id={book?.id}
+                title={book?.volumeInfo.title}
+                img={book?.volumeInfo.imageLinks?.smallThumbnail}
                 setIfChecked={setIfChecked}
               />
             ))}

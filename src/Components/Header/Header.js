@@ -16,6 +16,7 @@ const Header = ({ setSearch }) => {
       return;
     }
     setSearch(input);
+    setInput("");
   }
 
   return (
@@ -29,6 +30,7 @@ const Header = ({ setSearch }) => {
           <span className="material-symbols-outlined search-icon">search</span>
           <input
             type="text"
+            value={input}
             placeholder="Search for the book you want and read it now... Sherlock Holmes, Harry Pot..."
             onChange={(e) => setInput(e.target.value)}
           />

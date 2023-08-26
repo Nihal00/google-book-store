@@ -28,7 +28,9 @@ const Card = ({ data, setCardId, setIfChecked, ifChecked, cardId }) => {
           <h3>{data[0]?.volumeInfo.title}</h3>
           <p>Published On: {data[0]?.volumeInfo.publishedDate}</p>
         </div>
-        <p className="author">{data[0]?.volumeInfo.authors[0]}</p>
+        <p className="author">{
+        data[0].volumeInfo.authors ? data[0].volumeInfo.authors[0] : "No Author"
+        }</p>
         <p className="book-dis">
           {data[0]?.volumeInfo.description || "No Content"}
         </p>
