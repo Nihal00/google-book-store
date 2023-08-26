@@ -9,6 +9,7 @@ const App = () => {
   const [data, setData] = useState("");
   const [data2, setData2] = useState("");
   const [search, setSearch] = useState("");
+  const [ifChecked, setIfChecked] = useState("");
 
   useEffect(() => {
     axios
@@ -30,7 +31,7 @@ const App = () => {
       });
   }, []);
 
-  const [ifChecked, setIfChecked] = useState("");
+  
 
   return (
     <div className="App">
